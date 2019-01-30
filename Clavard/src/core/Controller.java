@@ -134,6 +134,7 @@ public class Controller {
 		if (ready_) {
 		ListeCo.add(pseudo);
 		fenetreCo_.majListeCo();
+		fenetreCo_.majNbCo();
 		}
 	}
 	
@@ -147,6 +148,7 @@ public class Controller {
 			fenetreCo_.cacherChat();
 		}
 		fenetreCo_.majListeCo();
+		fenetreCo_.majNbCo();
 		}
 	}
 	

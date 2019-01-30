@@ -19,7 +19,7 @@ public class UDPListener implements Runnable {
     }
 
     public void run() {
-	System.out.println("UDPListener : lanc�");
+	System.out.println("UDPListener : lance");
 	try {
 	    dgramSocket_ = new DatagramSocket(port_);
 	    dgramSocket_.setSoTimeout(60*1000*60); //on laisse un timeout de 1 heure
@@ -35,7 +35,7 @@ public class UDPListener implements Runnable {
 
 		if ((message.equals(ir_.getPseudo()+":tchao:0"))||(message.equals(ir_.getPseudo()+":tchao:1"))) {
 		    dgramSocket_.close();
-		    System.out.println("UDPListener : socket ferm�.");
+		    System.out.println("UDPListener : socket ferme.");
 		    break;
 		}
 		
@@ -50,7 +50,7 @@ public class UDPListener implements Runnable {
 	    //si on est sorti de la boucle, on peut close le socket
 	    termine();
 	} catch(SocketTimeoutException e) {
-	    System.out.println("UDPListener : Le timeout de UDPListener a expir� on close le socket.");
+	    System.out.println("UDPListener : Le timeout de UDPListener a expire on close le socket.");
 	    termine();
 	} catch(SocketException e) {
 	    System.out.println("PB dans startUDPListener.");
