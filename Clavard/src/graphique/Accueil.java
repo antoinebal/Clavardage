@@ -110,7 +110,7 @@ public class Accueil implements ActionListener, KeyListener{
 		btnConnexion.addActionListener(this);
 		frmAccueil.getContentPane().add(btnConnexion);
 		
-		lblLePseudoNe = new JLabel("Le pseudo ne doit ni être vide ni contenir d'accent, ni de \":\" ou de \";\" !");
+		lblLePseudoNe = new JLabel("Le pseudo ne doit ni ï¿½tre vide ni contenir d'accent, ni de \":\" ou de \";\" !");
 		lblLePseudoNe.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblLePseudoNe.setForeground(Color.RED);
 		lblLePseudoNe.setBounds(253, 482, 574, 48);
@@ -122,7 +122,7 @@ public class Accueil implements ActionListener, KeyListener{
 		rdbtnLocal.setForeground(Color.WHITE);
 		rdbtnLocal.setBackground(new Color(0,0, 51));
 		rdbtnLocal.setBounds(297, 322, 75, 25);
-		rdbtnLocal.setSelected(true); //l'application fonctionne en local par défaut
+		rdbtnLocal.setSelected(true); //l'application fonctionne en local par dï¿½faut
 		frmAccueil.getContentPane().add(rdbtnLocal);
 		
 		JRadioButton rdbtnEnLigne = new JRadioButton("En ligne");
@@ -137,7 +137,7 @@ public class Accueil implements ActionListener, KeyListener{
 		group.add(rdbtnLocal);
 		
 		
-		ImageIcon originalIcon = new ImageIcon("C:/Users/Mehdi/Desktop/INSA/4IR/POO/Projet/Final-Clavard/Clavard/src/graphique/Benjamin_clavard.png");
+		ImageIcon originalIcon = new ImageIcon("./src/graphique/Benjamin_clavard.png");
 		int width = originalIcon.getIconWidth() / 6;
 		int height = originalIcon.getIconHeight() / 6;
 		
@@ -162,7 +162,7 @@ public class Accueil implements ActionListener, KeyListener{
 	}
 	public void action() {
 		log = this.txtfield.getText();
-		if (log.contains(":") || log.contains(";") || log.isEmpty() ||  log.contains("é")|| log.contains("è")|| log.contains("ê")|| log.contains("à")){
+		if (log.contains(":") || log.contains(";") || log.isEmpty() ||  log.contains("ï¿½")|| log.contains("ï¿½")|| log.contains("ï¿½")|| log.contains("ï¿½")){
 			lblLePseudoNe.setVisible(true);
 		}
 		else {

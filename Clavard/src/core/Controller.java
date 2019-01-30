@@ -26,10 +26,10 @@ public class Controller {
 	public Controller(boolean test) {}
 	public Controller(int tcpPort, int udpPort) {
 		
-		//fenêtre d'authentification
+		//fenï¿½tre d'authentification
 		Accueil accueil = new Accueil();
 		
-		//on récupÃ¨re le pseudo
+		//on rï¿½cupÃ¨re le pseudo
 		while (!accueil.getLoginaccepte()) {
 			try {
 				Thread.sleep(500);
@@ -40,7 +40,7 @@ public class Controller {
 		
 		pseudo=accueil.getLog();
 		
-		//on crée l'ir en fonction du choix de communication de l'utilisateur
+		//on crï¿½e l'ir en fonction du choix de communication de l'utilisateur
 		if (accueil.isLocal()) {
 			System.out.println("Controller : MODE LOCAL SELECTIONNE");
 			ir_ = new AgentLAN(pseudo, 6000, 5000, this);
@@ -49,7 +49,7 @@ public class Controller {
 			ir_ = new AgentWAN(pseudo, tcpPort, udpPort, this);
 		}
 		
-		//on attend d'être connecté
+		//on attend d'ï¿½tre connectï¿½
 		while (!ir_.isCo()) {
 			try {
 				Thread.sleep(200);
@@ -58,18 +58,18 @@ public class Controller {
 			}
 		}
 		
-		//on récupÃ¨re la liste des connectés
+		//on rï¿½cupÃ¨re la liste des connectï¿½s
 		ListeCo = ir_.annuaireToPseudoList();
 		
-		connexion = new BDD("C:/Users/Mehdi/Desktop/INSA/4IR/POO/Projet/Final-Clavard/Clavard/src/bdd/Clavard.db");
+		connexion = new BDD("./src/bdd/Clavard.db");
         connexion.connect();
 		
-		//on a la liste donc on peut créer la fenetre connecte
+		//on a la liste donc on peut crï¿½er la fenetre connecte
 		fenetreCo_ = new Connecte(pseudo, this);
 		ready_=true;
 	}
 	
-	/*fonction appelée depuis le Chat. Appelle envoyerMessage de
+	/*fonction appelï¿½e depuis le Chat. Appelle envoyerMessage de
 	 * InterfaceReseau
 	 */
 	public void envoyerMessage(String pseudoDest, String message) {
@@ -112,23 +112,23 @@ public class Controller {
 		return listeloginbdd;
 	}
 	
-	/*appelée quand l'utilisateur ferme la fenêtre : 
-	 * il faut close la bdd et éteindre l'IR
+	/*appelï¿½e quand l'utilisateur ferme la fenï¿½tre : 
+	 * il faut close la bdd et ï¿½teindre l'IR
 	 */
 	public void fermer() {
 		connexion.close();
 		ir_.extinction();
 	}
 	
-	/* méthode appelée par l'IR quand un contact se
-	 * déconnecte
+	/* mï¿½thode appelï¿½e par l'IR quand un contact se
+	 * dï¿½connecte
 	 */
 	
 	
 	
-	/* fonction à appeler depuis l'ir quand il y a
-	 * un nouveau connecté. Le controller va notifier 
-	 * la fenêtre Connecte de cela
+	/* fonction ï¿½ appeler depuis l'ir quand il y a
+	 * un nouveau connectï¿½. Le controller va notifier 
+	 * la fenï¿½tre Connecte de cela
 	 */
 	public void nouveauConnecte(String pseudo) {
 		if (ready_) {
@@ -137,8 +137,8 @@ public class Controller {
 		}
 	}
 	
-	/* méthode appelée par l'IR quand un contact se
-	 * déconnecte
+	/* mï¿½thode appelï¿½e par l'IR quand un contact se
+	 * dï¿½connecte
 	 */
 	public void decoContact(String pseudo) {
 		if (ready_) {
@@ -150,17 +150,17 @@ public class Controller {
 		}
 	}
 	
-	/*fonction appelée depuis l'IR, on : 
-	 * > màj la BDD
-	 * > màj l'interface graphique
+	/*fonction appelï¿½e depuis l'IR, on : 
+	 * > mï¿½j la BDD
+	 * > mï¿½j l'interface graphique
 	 */
 	public void traiterNewPseudo(String previousPseudo, String newPseudo) {
-		System.out.println("Controller : "+previousPseudo+" s'appelle désormais "+newPseudo);
+		System.out.println("Controller : "+previousPseudo+" s'appelle dï¿½sormais "+newPseudo);
 		
-		//on màj la bdd
+		//on mï¿½j la bdd
 		connexion.changementPseudo(previousPseudo, newPseudo);
 		
-		//on màj l'ig
+		//on mï¿½j l'ig
 		ListeCo.remove(previousPseudo);
 		ListeCo.add(newPseudo);
 		fenetreCo_.majListeCo();
@@ -178,6 +178,8 @@ public class Controller {
 		pseudo=newPseudo;
 		ir_.informerNewPseudo(newPseudo);
 	}
+	
+	public void setPseudo(String newPseudo) {pseudo=newPseudo;}
 	
 	public static void main(String[] args) {
 		new Controller(6001, 5001);

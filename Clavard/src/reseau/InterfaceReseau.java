@@ -109,7 +109,7 @@ public abstract class InterfaceReseau {
     }
 
 
-    /* appelÈ quand message TCP reÁu -> TODO lien avec controller qui va update IG + BDD */
+    /* appelÔøΩ quand message TCP reÔøΩu -> TODO lien avec controller qui va update IG + BDD */
     public void recevoirMessage(String pseudoEmetteur, String message) throws CorrespondantException{
 	if (annuaire_.containsKey(pseudoEmetteur)) {
 		System.out.println(pseudoEmetteur+" : "+message);
@@ -125,9 +125,9 @@ public abstract class InterfaceReseau {
        dire que l'on avait re√ßu son hello), on set juste le blablaTCP pour discuter
        avec lui dans son objet Correspondant.
        Si le correspondant n'est pas pr√©sent dans l'annuaire, (cela veut dire
-       que l'on avait pas reÁu son hello message, ce qui est possible comme
+       que l'on avait pas reÔøΩu son hello message, ce qui est possible comme
        c'est un message d'administration r√©seau, donc UDP), on rajoute
-       une nouvelle entrÈe dans l'annuaire pour ce Correspondant crÈe avec
+       une nouvelle entrÔøΩe dans l'annuaire pour ce Correspondant crÔøΩe avec
        l'objet BlablaTCP du nouvel interlocuteur.*/
     public void nouveauCorrespondant(String pseudo, BlablaTCP bbTCP) {
 	if (annuaire_.containsKey(pseudo)) {
@@ -158,7 +158,7 @@ public abstract class InterfaceReseau {
 		} else {
 		    Correspondant nouveauCorrespondant = new Correspondant(address, port);
 		    annuaire_.put(pseudo, nouveauCorrespondant);
-		    System.out.println(pseudo+" ajoutÈ ‡ l'annuaire gr‚ce ‡ son message Hello.");
+		    System.out.println(pseudo+" ajoutÔøΩ ÔøΩ l'annuaire grÔøΩce ÔøΩ son message Hello.");
 		    
 		    //on informe le controller
 		    controller_.nouveauConnecte(pseudo);
@@ -168,12 +168,10 @@ public abstract class InterfaceReseau {
     //fonction √† appeler depuis bbTCP quand on √©teint l'ir ou quand il re√ßo√Æt un msg TCP "tchao"
     //supprime le Correspondant ayant pour cl√© le pseudo en argument
     public void supprimeCorrespondant(String pseudo, boolean b) {
-	annuaire_.remove(pseudo);
-	printAnnuaire();
-	
-	
-	//on informe le controller
-	if (b) {controller_.decoContact(pseudo);}
+    	annuaire_.remove(pseudo);
+		printAnnuaire();
+		//on informe le controller
+		if (b) {controller_.decoContact(pseudo);}
     }
 
     public String getPseudo() {return pseudo_;}
@@ -191,9 +189,11 @@ public abstract class InterfaceReseau {
     public void setDernierCo(boolean b) {}
     //√† red√©finir dans AgentLAN
     public void envoyerUDP(InetAddress address, String message) {}
+    
     public void setPseudo(String pseudo) {
-	System.out.println("IR : je change de pseudo "+pseudo_+" --> "+pseudo);
-	pseudo_=pseudo;
+    	System.out.println("IR : je change de pseudo "+pseudo_+" --> "+pseudo);
+    	pseudo_=pseudo;
+    	controller_.setPseudo(pseudo_);
     }
 
     /*cette fonction est appel√©e par le secr√©taire pour construire un message welcome*/
