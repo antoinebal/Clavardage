@@ -243,7 +243,7 @@ public abstract class InterfaceReseau {
 	    /*fonction utilisée par le secrétaire pour vérifier si un pseudo appartient
 	    à l'annuaire */
 	  public boolean dejaPris(String pseudo) {
-		return annuaire_.containsKey(pseudo);
+		return annuaire_.containsKey(pseudo)||pseudo_.equals(pseudo);
 	  }
 
 
