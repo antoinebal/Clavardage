@@ -49,10 +49,10 @@ public class ClientTCP {
 	    bbTCP_.envoyerPseudoLocal();
 	    ir_.nouveauCorrespondant(pseudoServeur_, bbTCP_);
 	} catch (UnknownHostException e) {
-	    System.out.println("PB starClient : h�te inconnu.");
+	    System.out.println("PB starClient : hote inconnu.");
 	    e.printStackTrace();
 	} catch (IOException e) {
-	    System.out.println("PB starClient : cr�aion socket.");
+	    System.out.println("PB starClient : creation socket.");
 	    e.printStackTrace();
 	}catch (InterruptedException e) {
 	    System.out.println("PB starClient : Thread.sleep().");

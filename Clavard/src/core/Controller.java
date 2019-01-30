@@ -155,7 +155,7 @@ public class Controller {
 	 * > m�j l'interface graphique
 	 */
 	public void traiterNewPseudo(String previousPseudo, String newPseudo) {
-		System.out.println("Controller : "+previousPseudo+" s'appelle d�sormais "+newPseudo);
+		System.out.println("Controller : "+previousPseudo+" s'appelle desormais "+newPseudo);
 		
 		//on m�j la bdd
 		connexion.changementPseudo(previousPseudo, newPseudo);

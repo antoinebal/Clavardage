@@ -31,7 +31,7 @@ public class AgentLAN extends InterfaceReseau {
 
 	//on broadcast un hello message
 	udpTalk_.broadcastMessage(secretaire_.construireHelloMessage());
-	System.out.println("IR : Hello broadcasté");
+	System.out.println("IR : Hello broadcaste");
 
 	//on lance le timer
 	ttHello_ = new TTHello(this);
@@ -87,15 +87,15 @@ public class AgentLAN extends InterfaceReseau {
 	    if (corr.coEtablie()) { //on termine les connexions BlablaTCP
 		corr.getBBTCP().envoyerTchao(dernierCo());
 		corr.getBBTCP().terminerConnexion(false);
-		System.out.println("IR : (ext) connexion terminée avec "+pseudo);
+		System.out.println("IR : (ext) connexion terminee avec "+pseudo);
 	    } else { //on envoie tchaoMessage sur l'InetAddress du Correspondant
 		envoyerUDP(corr.getInetAddress(), secretaire_.construireTchaoMessage(dernierCo()));
-		System.out.println("IR : (ext) tchao UDP envoyé à "+pseudo);
+		System.out.println("IR : (ext) tchao UDP envoye à "+pseudo);
 	    }
 	    setDernierCo(false);
 	}
 	annuaire_.clear();
-	System.out.println("IR : ANNUAIRE VIDÉ, CONNEXIONS FERMÉES");
+	System.out.println("IR : ANNUAIRE VIDE, CONNEXIONS FERMEES");
 	printAnnuaire();
 
 	//on termine le UDPTalk
@@ -119,7 +119,7 @@ public class AgentLAN extends InterfaceReseau {
 	    System.out.println("TTHello secondes : "+secondes_);
 	    if (ir_.isCo()) {
 		//si ir connecté on arrête la timer task
-		System.out.println("TTHello s'arrête car on est co");
+		System.out.println("TTHello s'arrete car on est co");
 		cancel();
 	    }
 	    if (secondes_>2) {

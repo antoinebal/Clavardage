@@ -47,12 +47,12 @@ public class AgentWAN extends InterfaceReseau {
 			corr.getBBTCP().envoyerTchao(false);
 			//argument faux car appel� depuis agent wan
 			corr.getBBTCP().terminerConnexion(false);
-			System.out.println("AgentWAN : (ext) connexion termin�e avec "+pseudo);
+			System.out.println("AgentWAN : (ext) connexion terminee avec "+pseudo);
 		    }
 		}
 		
 		annuaire_.clear();
-		System.out.println("AW : ANNUAIRE VID�, CONNEXIONS FERM�ES");
+		System.out.println("AW : ANNUAIRE VIDE, CONNEXIONS FERMEES");
 		printAnnuaire();
 		
 		//on envoie une requ�te GET au serveur avec l'attribut deconnexion � 1

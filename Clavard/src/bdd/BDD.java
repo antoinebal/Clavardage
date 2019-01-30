@@ -1,7 +1,6 @@
 package bdd;
 
-//import java.net.InetAddress;
-//import java.net.UnknownHostException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -26,7 +25,7 @@ public class BDD {
             Class.forName("org.sqlite.JDBC");
             connection = DriverManager.getConnection("jdbc:sqlite:" + DBPath);
             statement = connection.createStatement();
-            System.out.println("Connexion à " + DBPath + " avec succès");
+            System.out.println("Connexion a " + DBPath + " avec succes");
         } catch (ClassNotFoundException notFoundException) {
             notFoundException.printStackTrace();
             System.out.println("Erreur de connexion");
@@ -44,7 +43,6 @@ public class BDD {
     	
     	try {
             while (resultSet.next()) {
-            	//Créer une liste (map ?), mettre tous les messages dedans et envoyer la liste
             	String strdate = resultSet.getString("date");
             	String contenu = resultSet.getString("mess");
             	String loem=resultSet.getString("loginemetteur");
@@ -55,7 +53,6 @@ public class BDD {
             	Date date=new SimpleDateFormat("dd-MM-yyyy hh:mm:ss").parse(strdate);
             	Message mess=new Message(loemreplaced,lorereplaced,date,creplaced);
             	liste.add(mess);
-                //System.out.println("Le "+resultSet.getString("date")+" : "+resultSet.getString("mess"));
             }
         } catch (SQLException e) {
             //e.printStackTrace();
@@ -65,8 +62,9 @@ public class BDD {
     	
     	return liste;
     }
+    
+    
     public void ecrire(String login_emet,String login_recept,Date date,String mess) {
-    	System.out.println("BDD : JE SUIS DANS ECRIRE");
     	DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");  
     	String strDate = dateFormat.format(date); 
     	String emetrplcd = login_emet.replace("'", "\\\\");

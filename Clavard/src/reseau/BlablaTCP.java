@@ -43,10 +43,10 @@ public class BlablaTCP {
     public void envoyerTchao(boolean requeteDC) {
 	if (!requeteDC) {
 	    out_.println("tchao");
-	    System.out.println("BBTCP : tchao envoyé à "+pseudoCorrespondant_);
+	    System.out.println("BBTCP : tchao envoye a "+pseudoCorrespondant_);
 	} else {
 	    out_.println("tchaoDC");
-	    System.out.println("BBTCP : tchaoDC envoyé à "+pseudoCorrespondant_);
+	    System.out.println("BBTCP : tchaoDC envoye a "+pseudoCorrespondant_);
 	}
     }
     
@@ -56,7 +56,7 @@ public class BlablaTCP {
 	try {
 	    ir_.recevoirMessage(pseudoCorrespondant_, message);
 	} catch (CorrespondantException e) {
-	    System.out.println("Le correspondant existe déjà.");
+	    System.out.println("Le correspondant existe deja.");
 	    e.printStackTrace();
 	}
     }
@@ -76,19 +76,19 @@ public class BlablaTCP {
 	if (b) {
 	    ir_.supprimeCorrespondant(pseudoCorrespondant_,true);
 	}
-	System.out.println("BBTCP : connexion avec "+pseudoCorrespondant_+" terminée.");
+	System.out.println("BBTCP : connexion avec "+pseudoCorrespondant_+" terminee.");
     }
 
     /* appelé par le listener si il reçoit une requête
        demandant à son IR propriétaire de passer dernierCo */
     public void setDernierCo() {
 	ir_.setDernierCo(true);
-	System.out.println("BBTCP : dernierCo passé à vrai");
+	System.out.println("BBTCP : dernierCo passe a vrai");
     }
 
     public void setPseudoCo(String newPseudo) {
 	pseudoCorrespondant_=newPseudo;
-	System.out.println("BlablaTCP : pseudo changé en "+newPseudo);
+	System.out.println("BlablaTCP : pseudo change en "+newPseudo);
     }
     
     public String getPseudoCo() {return pseudoCorrespondant_;}

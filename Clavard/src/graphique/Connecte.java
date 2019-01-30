@@ -306,7 +306,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 			TextArea.append(recepteur+" : "+message+"\n");
 		}
 		} catch (NullPointerException e) {
-			System.out.println("Connecte : La fen�tre de discussion ouverte ne correspond pas au r�cepteur du message re�u");
+			System.out.println("Connecte : La fenetre de discussion ouverte ne correspond pas au recepteur du message recu");
 			recepteur=pseudoEmetteur;
 			try {
 				afficheChat();
