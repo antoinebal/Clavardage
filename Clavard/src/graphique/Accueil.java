@@ -57,7 +57,7 @@ public class Accueil implements ActionListener, KeyListener{
 		frmAccueil.getContentPane().setBackground(new Color(0, 0, 51));
 		frmAccueil.setForeground(new Color(0, 0, 0));
 		frmAccueil.setBackground(new Color(0, 0, 0));
-		frmAccueil.setBounds(100, 100, 1108, 644);
+		frmAccueil.setBounds(100, 100, 1005, 579);
 		frmAccueil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAccueil.setLocationRelativeTo(null);
 		frmAccueil.getContentPane().setLayout(null);
@@ -92,7 +92,7 @@ public class Accueil implements ActionListener, KeyListener{
 		txtBienvenueSurVotre.setBackground(new Color(0, 0, 51));
 		txtBienvenueSurVotre.setFont(new Font("Dialog", Font.BOLD, 31));
 		txtBienvenueSurVotre.setText("Bienvenue sur votre plateforme de clavardage");
-		txtBienvenueSurVotre.setBounds(141, 58, 834, 99);
+		txtBienvenueSurVotre.setBounds(97, 38, 834, 99);
 		frmAccueil.getContentPane().add(txtBienvenueSurVotre);
 		txtBienvenueSurVotre.setColumns(10);
 		
@@ -103,7 +103,7 @@ public class Accueil implements ActionListener, KeyListener{
 		txtVeuillezVousIdentifier.setForeground(Color.WHITE);
 		txtVeuillezVousIdentifier.setBackground(new Color(0, 0, 51));
 		txtVeuillezVousIdentifier.setText("Veuillez vous identifier");
-		txtVeuillezVousIdentifier.setBounds(403, 171, 247, 28);
+		txtVeuillezVousIdentifier.setBounds(374, 149, 253, 28);
 		frmAccueil.getContentPane().add(txtVeuillezVousIdentifier);
 		txtVeuillezVousIdentifier.setColumns(10);
 		
@@ -115,7 +115,7 @@ public class Accueil implements ActionListener, KeyListener{
 		lblLePseudoNe = new JLabel("Le pseudo ne doit ni contenir d'accent, ni de \":\" ou de \";\" !");
 		lblLePseudoNe.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblLePseudoNe.setForeground(Color.RED);
-		lblLePseudoNe.setBounds(297, 477, 534, 40);
+		lblLePseudoNe.setBounds(280, 475, 534, 40);
 		lblLePseudoNe.setVisible(false);
 		frmAccueil.getContentPane().add(lblLePseudoNe);
 		
@@ -123,7 +123,7 @@ public class Accueil implements ActionListener, KeyListener{
 		rdbtnLocal.setFont(new Font("Source Sans Pro", Font.PLAIN, 18));
 		rdbtnLocal.setForeground(Color.WHITE);
 		rdbtnLocal.setBackground(new Color(0,0, 51));
-		rdbtnLocal.setBounds(297, 322, 75, 25);
+		rdbtnLocal.setBounds(297, 263, 75, 25);
 		rdbtnLocal.setSelected(true); //l'application fonctionne en local par d�faut
 		frmAccueil.getContentPane().add(rdbtnLocal);
 		
@@ -131,7 +131,7 @@ public class Accueil implements ActionListener, KeyListener{
 		rdbtnEnLigne.setFont(new Font("Source Sans Pro", Font.PLAIN, 18));
 		rdbtnEnLigne.setForeground(Color.WHITE);
 		rdbtnEnLigne.setBackground(new Color(0,0, 51));
-		rdbtnEnLigne.setBounds(681, 322, 117, 25);
+		rdbtnEnLigne.setBounds(684, 263, 117, 25);
 		frmAccueil.getContentPane().add(rdbtnEnLigne);
 		
 		ButtonGroup group = new ButtonGroup();

@@ -55,7 +55,6 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 		ctrl=controller;
 		login = log;
 		ListCo = ctrl.getListeCo();
-		System.out.println(ListCo);
 		nbCo = ListCo.size(); 
 		initialize();
 	}

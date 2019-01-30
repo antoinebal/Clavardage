@@ -23,7 +23,6 @@ public class Controller {
 	private boolean ready_=false;
 	private String IPserver;
 	
-	
 	public Controller(boolean test) {}
 	public Controller(int tcpPort, int udpPort) {
 		
@@ -135,7 +134,6 @@ public class Controller {
 		if (ready_) {
 		ListeCo.add(pseudo);
 		fenetreCo_.majListeCo();
-		fenetreCo_.majNbCo();
 		}
 	}
 	
@@ -149,7 +147,6 @@ public class Controller {
 			fenetreCo_.cacherChat();
 		}
 		fenetreCo_.majListeCo();
-		fenetreCo_.majNbCo();
 		}
 	}
 	
@@ -187,11 +184,10 @@ public class Controller {
 	public String getIPserver() {
 		return IPserver;
 	}
+	
 	public void setIPserver(String iPserver) {
 		IPserver = iPserver;
 	}
-	
-	
 	public static void main(String[] args) {
 		new Controller(6001, 5001);
 	}
