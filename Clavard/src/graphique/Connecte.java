@@ -50,7 +50,8 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 	Controller ctrl;
 	DefaultListModel listModel;
 	JLabel lblNewLabel_1;
-	
+	JPanel panel;
+	JLabel lblNewLabel;
 	public Connecte(String log, Controller controller) {
 		ctrl=controller;
 		login = log;
@@ -79,14 +80,14 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 		});
 		frmConnecte.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBorder(null);
 		panel.setBackground(new Color(0, 0, 128));
 		panel.setBounds(833, 0, 229, 673);
 		frmConnecte.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Connecté(s) : "+nbCo);
+		lblNewLabel = new JLabel("Connecté(s) : "+nbCo);
 		lblNewLabel.setBounds(34, 103, 170, 23);
 		lblNewLabel.setFont(new Font("Book Antiqua", Font.BOLD, 18));
 		lblNewLabel.setForeground(Color.WHITE);
@@ -248,6 +249,17 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 			listModel.addElement(i);
 		}
 		list.setModel(listModel);
+	}
+	
+	public void majNbCo() {
+		nbCo = ctrl.getListeCo().size();
+		panel.remove(lblNewLabel);
+		lblNewLabel = new JLabel("Connecté(s) : "+nbCo);
+		lblNewLabel.setBounds(34, 103, 170, 23);
+		lblNewLabel.setFont(new Font("Book Antiqua", Font.BOLD, 18));
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setBackground(new Color(0, 0, 0));
+		panel.add(lblNewLabel);
 	}
 
 	public void afficheChat() throws ParseException {
