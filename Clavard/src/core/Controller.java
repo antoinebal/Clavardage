@@ -30,7 +30,7 @@ public class Controller {
 		Accueil accueil = new Accueil();
 		
 		//on récupÃ¨re le pseudo
-		while ((pseudo=accueil.getLog())==null) {
+		while (!accueil.getLoginaccepte()) {
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
@@ -38,6 +38,7 @@ public class Controller {
 			}
 		}
 		
+		pseudo=accueil.getLog();
 		
 		//on crée l'ir en fonction du choix de communication de l'utilisateur
 		if (accueil.isLocal()) {
