@@ -57,7 +57,7 @@ public class Accueil implements ActionListener, KeyListener{
 		frmAccueil.getContentPane().setBackground(new Color(0, 0, 51));
 		frmAccueil.setForeground(new Color(0, 0, 0));
 		frmAccueil.setBackground(new Color(0, 0, 0));
-		frmAccueil.setBounds(100, 100, 1080, 720);
+		frmAccueil.setBounds(100, 100, 1108, 644);
 		frmAccueil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAccueil.setLocationRelativeTo(null);
 		frmAccueil.getContentPane().setLayout(null);
@@ -112,10 +112,10 @@ public class Accueil implements ActionListener, KeyListener{
 		btnConnexion.addActionListener(this);
 		frmAccueil.getContentPane().add(btnConnexion);
 		
-		lblLePseudoNe = new JLabel("Le pseudo ne doit ni �tre vide ni contenir d'accent, ni de \":\" ou de \";\" !");
+		lblLePseudoNe = new JLabel("Le pseudo ne doit ni contenir d'accent, ni de \":\" ou de \";\" !");
 		lblLePseudoNe.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblLePseudoNe.setForeground(Color.RED);
-		lblLePseudoNe.setBounds(253, 482, 574, 48);
+		lblLePseudoNe.setBounds(297, 477, 534, 40);
 		lblLePseudoNe.setVisible(false);
 		frmAccueil.getContentPane().add(lblLePseudoNe);
 		
