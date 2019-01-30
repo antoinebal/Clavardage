@@ -19,23 +19,23 @@ public class UDPListener implements Runnable {
     }
 
     public void run() {
-	System.out.println("UDPListener : lancé");
+	System.out.println("UDPListener : lancï¿½");
 	try {
 	    dgramSocket_ = new DatagramSocket(port_);
-	    dgramSocket_.setSoTimeout(60*1000*10); //on laisse un timeout de 10 minutes
+	    dgramSocket_.setSoTimeout(60*1000*60); //on laisse un timeout de 1 heure
 	    byte[] buffer = new byte[256];
 	    DatagramPacket inPacket = new DatagramPacket(buffer, buffer.length);
 	    while(!ir_.isTermine()) {
 		System.out.println("UDPListener : attend de recevoir un message");
 		dgramSocket_.receive(inPacket);
-		//System.out.println("UDP Listener a reçu un message");
+		//System.out.println("UDP Listener a reï¿½u un message");
 		InetAddress clientAddress = inPacket.getAddress();
 		int clientPort = inPacket.getPort();
 		String message = new String(inPacket.getData(), 0, inPacket.getLength());
 
-		if (message.equals(ir_.getPseudo()+":tchao")) {
+		if ((message.equals(ir_.getPseudo()+":tchao:0"))||(message.equals(ir_.getPseudo()+":tchao:1"))) {
 		    dgramSocket_.close();
-		    System.out.println("UDPListener : socket fermé.");
+		    System.out.println("UDPListener : socket fermï¿½.");
 		    break;
 		}
 		
@@ -50,7 +50,7 @@ public class UDPListener implements Runnable {
 	    //si on est sorti de la boucle, on peut close le socket
 	    termine();
 	} catch(SocketTimeoutException e) {
-	    System.out.println("UDPListener : Le timeout de UDPListener a expiré on close le socket.");
+	    System.out.println("UDPListener : Le timeout de UDPListener a expirï¿½ on close le socket.");
 	    termine();
 	} catch(SocketException e) {
 	    System.out.println("PB dans startUDPListener.");
