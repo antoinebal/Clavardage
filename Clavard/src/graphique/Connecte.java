@@ -50,7 +50,6 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 	Controller ctrl;
 	DefaultListModel listModel;
 	JLabel lblNewLabel_1;
-	JPanel panel;
 	JLabel lblNewLabel;
 	public Connecte(String log, Controller controller) {
 		ctrl=controller;
@@ -72,7 +71,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 		frmConnecte.setLocationRelativeTo(null);
 		frmConnecte.addWindowListener(new WindowAdapter(){
 		    @Override
-		    public void windowClosing(WindowEvent e) //Permet de fermer proprement l'application (fermeture sockets et base de donnée)
+		    public void windowClosing(WindowEvent e) //Permet de fermer proprement l'application (fermeture sockets et base de donnï¿½e)
 		    {
 		        super.windowClosing(e);
 		        ctrl.fermer();
@@ -80,14 +79,14 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 		});
 		frmConnecte.getContentPane().setLayout(null);
 		
-		panel = new JPanel();
+		JPanel panel = new JPanel();
 		panel.setBorder(null);
 		panel.setBackground(new Color(0, 0, 128));
 		panel.setBounds(833, 0, 229, 673);
 		frmConnecte.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		lblNewLabel = new JLabel("Connecté(s) : "+nbCo);
+		lblNewLabel = new JLabel("Internaute(s) : "+nbCo);
 		lblNewLabel.setBounds(34, 103, 170, 23);
 		lblNewLabel.setFont(new Font("Book Antiqua", Font.BOLD, 18));
 		lblNewLabel.setForeground(Color.WHITE);
@@ -191,7 +190,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 		btnChangerDePseudo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane jop = new JOptionPane();
-			    String testnewpseudo = jop.showInputDialog(null, "Votre nouveau pseudo ? (Pas d'accent, de \":\", de \";\" ni un déjà existant)" , "Changer pseudo", JOptionPane.QUESTION_MESSAGE);
+			    String testnewpseudo = jop.showInputDialog(null, "Votre nouveau pseudo ? (Pas d'accent, de \":\", de \";\" ni un dï¿½jï¿½ existant)" , "Changer pseudo", JOptionPane.QUESTION_MESSAGE);
 			    ArrayList<String> pseudoexistants = ctrl.listeloginbdd();
 			   
 			    ListCo = ctrl.getListeCo();
@@ -215,7 +214,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 			    	}
 			    }
 			    
-			    if (testnewpseudo.contains(":") || testnewpseudo.contains(";") ||  testnewpseudo.contains("é")|| testnewpseudo.contains("è")|| testnewpseudo.contains("ê")|| testnewpseudo.contains("à") || testnewpseudo.isEmpty() || existedeja) {
+			    if (testnewpseudo.contains(":") || testnewpseudo.contains(";") ||  testnewpseudo.contains("Ãª")||  testnewpseudo.contains("ï¿½")|| testnewpseudo.contains("ï¿½")|| testnewpseudo.contains("ï¿½")|| testnewpseudo.contains("ï¿½") || testnewpseudo.isEmpty() || existedeja) {
 			    }
 			    else {
 			    	login=testnewpseudo;
@@ -230,7 +229,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 		panel_1.add(btnChangerDePseudo);
 		panel_3.setVisible(false);
 		
-		frmConnecte.setTitle("Connecté");
+		frmConnecte.setTitle("Connecte");
 		frmConnecte.setVisible(true);
 	}
 	
@@ -239,7 +238,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 	}
 
 
-	/* methode appelée quand un user se connecte
+	/* methode appelï¿½e quand un user se connecte
 	 * ou se deconnecte
 	 */
 	public void majListeCo() {
@@ -253,13 +252,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 	
 	public void majNbCo() {
 		nbCo = ctrl.getListeCo().size();
-		panel.remove(lblNewLabel);
-		lblNewLabel = new JLabel("Connecté(s) : "+nbCo);
-		lblNewLabel.setBounds(34, 103, 170, 23);
-		lblNewLabel.setFont(new Font("Book Antiqua", Font.BOLD, 18));
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBackground(new Color(0, 0, 0));
-		panel.add(lblNewLabel);
+		lblNewLabel.setText("Internaute(s) : "+nbCo);
 	}
 
 	public void afficheChat() throws ParseException {
@@ -314,7 +307,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 			TextArea.append(recepteur+" : "+message+"\n");
 		}
 		} catch (NullPointerException e) {
-			System.out.println("Connecte : La fenêtre de discussion ouverte ne correspond pas au récepteur du message reçu");
+			System.out.println("Connecte : La fenï¿½tre de discussion ouverte ne correspond pas au rï¿½cepteur du message reï¿½u");
 			recepteur=pseudoEmetteur;
 			try {
 				afficheChat();

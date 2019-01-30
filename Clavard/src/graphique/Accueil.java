@@ -164,7 +164,7 @@ public class Accueil implements ActionListener, KeyListener{
 	}
 	public void action() {
 		log = this.txtfield.getText();
-		if (log.contains(":") || log.contains(";") || log.isEmpty() ||  log.contains("�")|| log.contains("�")|| log.contains("�")|| log.contains("�")){
+		if (log.contains(":") || log.contains(";") || log.isEmpty() ||  log.contains("ê")||  log.contains("�")|| log.contains("�")|| log.contains("�")|| log.contains("�")){
 			lblLePseudoNe.setVisible(true);
 		}
 		else {
