@@ -19,6 +19,7 @@ import javax.swing.SwingConstants;
 import core.Controller;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
 public class Accueil implements ActionListener, KeyListener{
@@ -30,11 +31,11 @@ public class Accueil implements ActionListener, KeyListener{
 	private String log;
 	private JLabel lblLePseudoNe;
 	private Boolean loginaccepte = false;
-	
+	private Controller ctrl;
 	
 
 	JRadioButton rdbtnLocal;
-	
+	JRadioButton rdbtnEnLigne;
 	/**
 	 * Launch the application.
 	 * @wbp.parser.entryPoint
@@ -43,7 +44,8 @@ public class Accueil implements ActionListener, KeyListener{
 	
 	
 
-	public Accueil() {
+	public Accueil(Controller control) {
+		ctrl = control;
 		initialize();
 	}
 
@@ -125,7 +127,7 @@ public class Accueil implements ActionListener, KeyListener{
 		rdbtnLocal.setSelected(true); //l'application fonctionne en local par d�faut
 		frmAccueil.getContentPane().add(rdbtnLocal);
 		
-		JRadioButton rdbtnEnLigne = new JRadioButton("En ligne");
+		rdbtnEnLigne = new JRadioButton("En ligne");
 		rdbtnEnLigne.setFont(new Font("Source Sans Pro", Font.PLAIN, 18));
 		rdbtnEnLigne.setForeground(Color.WHITE);
 		rdbtnEnLigne.setBackground(new Color(0,0, 51));
@@ -184,12 +186,22 @@ public class Accueil implements ActionListener, KeyListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		if(rdbtnEnLigne.isSelected()) {
+			JOptionPane jop = new JOptionPane();
+		    String IP = jop.showInputDialog(null, "Veuillez insérer l'adresse IP du serveur" , "Adresse IP ?", JOptionPane.QUESTION_MESSAGE);
+		    ctrl.setIPserver(IP);
+		}
 		action();
 	}
 	
 	@Override
 	public void keyPressed(KeyEvent ke) {
 		if (ke.getKeyCode() == 10) {
+			if(rdbtnEnLigne.isSelected()) {
+				JOptionPane jop = new JOptionPane();
+			    String IP = jop.showInputDialog(null, "Veuillez insérer l'adresse IP du serveur" , "Adresse IP ?", JOptionPane.QUESTION_MESSAGE);
+			    ctrl.setIPserver(IP);
+			}
 			action();
 		}
 	}

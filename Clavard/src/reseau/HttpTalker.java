@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class HttpTalker {
 	
-	private static String ADRESSE_IP_SERVEUR_TOMCAT = "localhost";
+
 	
 	private AgentWAN aw_;
 	
@@ -18,8 +18,8 @@ public class HttpTalker {
 		aw_=aw;
 	}
 	
-    /*envoie requête http au serveur, retourne la liste des connectés
-     * envoyée par le serveur
+    /*envoie requï¿½te http au serveur, retourne la liste des connectï¿½s
+     * envoyï¿½e par le serveur
      */
     public String subscribe() {
         URL url = construitURL(true, false, null);
@@ -31,15 +31,15 @@ public class HttpTalker {
     	envoyerRequete(url);
     }
     
-    /* à appeler quand l'user change de pseudo */
+    /* ï¿½ appeler quand l'user change de pseudo */
     public void notifyNewPseudo(String newPseudo) {
     	URL url = construitURL(false, false, newPseudo);
     	envoyerRequete(url);
     }
     
-    /* construit l'url en fonction des paramètres */
+    /* construit l'url en fonction des paramï¿½tres */
     public URL construitURL(boolean co, boolean deco, String newpseudo) {
-        String stringUrl = "http://"+ADRESSE_IP_SERVEUR_TOMCAT+":8080/clavard-serveur/ClavardServlet?pseudo="+aw_.getPseudo();
+        String stringUrl = "http://"+aw_.getIPServer()+":8080/clavard-serveur/ClavardServlet?pseudo="+aw_.getPseudo();
         if (co) {
             stringUrl+="&connexion=1&ip="+aw_.getIP()+"&ptcp="+aw_.getPort()+"&pudp="+aw_.getPortUDP();
         }
@@ -67,10 +67,10 @@ public class HttpTalker {
              //on n'utilise pas le cache
              connexion.setUseCaches(false);
              
-             //on règle la connexion en output
+             //on rï¿½gle la connexion en output
              connexion.setDoOutput(true);
              
-             //on attend une réponse
+             //on attend une rï¿½ponse
              InputStream in = connexion.getInputStream();
              BufferedReader buffReader = new BufferedReader(new InputStreamReader(in));
              StringBuilder response = new StringBuilder();
@@ -79,7 +79,7 @@ public class HttpTalker {
                  response.append(line);
                  response.append('\r');
              }
-             System.out.println("Message reçu : "+response.toString());
+             System.out.println("Message reï¿½u : "+response.toString());
              buffReader.close();
              return response.toString();
          } catch (IOException e) {

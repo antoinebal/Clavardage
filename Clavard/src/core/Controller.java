@@ -21,13 +21,14 @@ public class Controller {
 	private BDD connexion;
 	private String pseudo;
 	private boolean ready_=false;
+	private String IPserver;
 	
 	
 	public Controller(boolean test) {}
 	public Controller(int tcpPort, int udpPort) {
 		
 		//fen�tre d'authentification
-		Accueil accueil = new Accueil();
+		Accueil accueil = new Accueil(this);
 		
 		//on r�cupère le pseudo
 		while (!accueil.getLoginaccepte()) {
@@ -180,6 +181,14 @@ public class Controller {
 	}
 	
 	public void setPseudo(String newPseudo) {pseudo=newPseudo;}
+	
+	public String getIPserver() {
+		return IPserver;
+	}
+	public void setIPserver(String iPserver) {
+		IPserver = iPserver;
+	}
+	
 	
 	public static void main(String[] args) {
 		new Controller(6001, 5001);

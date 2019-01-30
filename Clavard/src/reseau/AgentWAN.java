@@ -13,14 +13,14 @@ public class AgentWAN extends InterfaceReseau {
 		super(pseudo, portServeur, portUDP, controller);
 		httpTalker_ = new HttpTalker(this);
 		
-		/* on demande au secrétaire de remplir l'annuaire avec la liste
-		 * renvoyée par le serveur
+		/* on demande au secrï¿½taire de remplir l'annuaire avec la liste
+		 * renvoyï¿½e par le serveur
 		 */
 		secretaire_.traiteWelcomeMessage(httpTalker_.subscribe());
 		
-		/* on se passe connecté, ce qui est le signal
-		 * pour que le controller puisse récupérer la liste des
-		 * connectés
+		/* on se passe connectï¿½, ce qui est le signal
+		 * pour que le controller puisse rï¿½cupï¿½rer la liste des
+		 * connectï¿½s
 		 */
 		connected_=true;
 			
@@ -29,10 +29,10 @@ public class AgentWAN extends InterfaceReseau {
 
 	@Override
 	public void informerNewPseudo(String newPseudo) {
-		//on envoie la requête au serveur
+		//on envoie la requï¿½te au serveur
 		httpTalker_.notifyNewPseudo(newPseudo);
 		
-		//on change le pseudo enregistré localement
+		//on change le pseudo enregistrï¿½ localement
 		pseudo_=newPseudo;
 	}
 
@@ -45,20 +45,24 @@ public class AgentWAN extends InterfaceReseau {
 		    Correspondant corr = entry.getValue();
 		    if (corr.coEtablie()) { //on termine les connexions BlablaTCP
 			corr.getBBTCP().envoyerTchao(false);
-			//argument faux car appelé depuis agent wan
+			//argument faux car appelï¿½ depuis agent wan
 			corr.getBBTCP().terminerConnexion(false);
-			System.out.println("AgentWAN : (ext) connexion terminée avec "+pseudo);
+			System.out.println("AgentWAN : (ext) connexion terminï¿½e avec "+pseudo);
 		    }
 		}
 		
 		annuaire_.clear();
-		System.out.println("AW : ANNUAIRE VIDÉ, CONNEXIONS FERMÉES");
+		System.out.println("AW : ANNUAIRE VIDï¿½, CONNEXIONS FERMï¿½ES");
 		printAnnuaire();
 		
-		//on envoie une requête GET au serveur avec l'attribut deconnexion à 1
+		//on envoie une requï¿½te GET au serveur avec l'attribut deconnexion ï¿½ 1
 		httpTalker_.notifyDeconnexion();
 		
 		termine_=true;	
+	}
+	
+	public String getIPServer() {
+		return controller_.getIPserver();
 	}
 	
 	
