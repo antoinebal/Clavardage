@@ -8,6 +8,7 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 
+
 public class ServeurTCP {
     int port_;
     AttendConnexion attendCo_;
@@ -33,7 +34,8 @@ public class ServeurTCP {
     /*ce thread s'occupe d'attendre les connexions des clients
       quand un client se connecte il file le blablaTCP au ServeurTCP*/
     /* on a choisi de créer cette classe pour ne pas mettre ServeurTCP en Runnable : 
-       on peut ainsi le configurer plus dynamiquement */
+       la classe est ainsi plus modulable et peut gérer d'autres opérations
+       dans d'éventuelles nouvelles versions de l'application */
     private static class AttendConnexion implements Runnable {
 	private Socket link_=null;
 	private ServerSocket srvSock_=null;
@@ -61,10 +63,10 @@ public class ServeurTCP {
 	}
 
 	public void run() {
-	    System.out.println("AttendConnexion lanc�.");
+	    System.out.println("AttendConnexion lanc�.");
 	    try {
 		srvSock_ = new ServerSocket(port_);
-		srvSock_.setSoTimeout(1000*60*10); //on laisse un timeout de 2 minutes
+		srvSock_.setSoTimeout(1000*60*60); //on laisse un timeout de 1 heure
 		while (!srv_.getIR().isTermine()) {
 		    link_ = srvSock_.accept();
 		    System.out.println("Serveur(AC) : Connexion avec client numéro "+incNumero_+" acceptée.");
