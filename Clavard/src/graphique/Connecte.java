@@ -68,6 +68,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 		frmConnecte.setBackground(new Color(0, 0, 0));
 		frmConnecte.setBounds(100, 100, 1062, 698);
 		frmConnecte.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmConnecte.setLocationRelativeTo(null);
 		frmConnecte.addWindowListener(new WindowAdapter(){
 		    @Override
 		    public void windowClosing(WindowEvent e) //Permet de fermer proprement l'application (fermeture sockets et base de donnée)
@@ -228,7 +229,7 @@ public class Connecte implements ActionListener, MouseListener, KeyListener {
 		panel_1.add(btnChangerDePseudo);
 		panel_3.setVisible(false);
 		
-		frmConnecte.setTitle("ConnectÃ©");
+		frmConnecte.setTitle("Connecté");
 		frmConnecte.setVisible(true);
 	}
 	

@@ -2,6 +2,7 @@ package graphique;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +12,6 @@ import java.awt.event.KeyListener;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -20,7 +20,6 @@ import core.Controller;
 
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
-import javax.swing.JPanel;
 
 public class Accueil implements ActionListener, KeyListener{
 	private JFrame frmAccueil;
@@ -30,7 +29,10 @@ public class Accueil implements ActionListener, KeyListener{
 	private JTextField txtVeuillezVousIdentifier;
 	private String log;
 	private JLabel lblLePseudoNe;
+	private Boolean loginaccepte = false;
 	
+	
+
 	JRadioButton rdbtnLocal;
 	
 	/**
@@ -55,6 +57,7 @@ public class Accueil implements ActionListener, KeyListener{
 		frmAccueil.setBackground(new Color(0, 0, 0));
 		frmAccueil.setBounds(100, 100, 1080, 720);
 		frmAccueil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmAccueil.setLocationRelativeTo(null);
 		frmAccueil.getContentPane().setLayout(null);
 		frmAccueil.setTitle("Accueil");
 		
@@ -67,7 +70,6 @@ public class Accueil implements ActionListener, KeyListener{
 		txtfield.addKeyListener(this);
 		frmAccueil.getContentPane().add(txtfield);
 		txtfield.setColumns(10);
-		//txtfield.addActionListener(l);
 		
 		txtLogin = new JTextField();
 		txtLogin.setBorder(null);
@@ -106,8 +108,6 @@ public class Accueil implements ActionListener, KeyListener{
 		JButton btnConnexion = new JButton("Connexion");
 		btnConnexion.setBounds(701, 409, 118, 25);
 		btnConnexion.addActionListener(this);
-		//btnConnexion.getInputMap().pu
-		//btnConnexion.getInputMap().put(java.awt.event.KeyEvent.VK_ENTER, arg1);
 		frmAccueil.getContentPane().add(btnConnexion);
 		
 		lblLePseudoNe = new JLabel("Le pseudo ne doit ni être vide ni contenir d'accent, ni de \":\" ou de \";\" !");
@@ -136,9 +136,19 @@ public class Accueil implements ActionListener, KeyListener{
 		group.add(rdbtnEnLigne);
 		group.add(rdbtnLocal);
 		
-		JLabel lblNewLabel = new JLabel(new ImageIcon("C:/Users/Mehdi/Desktop/INSA/4IR/POO/Projet/Final-Clavard/Clavard/src/graphique/Benjamin_clavard.png"));
-		lblNewLabel.setBounds(34, 196, 136, 320);
-		frmAccueil.getContentPane().add(lblNewLabel);
+		
+		ImageIcon originalIcon = new ImageIcon("C:/Users/Mehdi/Desktop/INSA/4IR/POO/Projet/Final-Clavard/Clavard/src/graphique/Benjamin_clavard.png");
+		int width = originalIcon.getIconWidth() / 6;
+		int height = originalIcon.getIconHeight() / 6;
+		
+		
+		Image scaled = scaleImage(originalIcon.getImage(), width, height);		
+		ImageIcon scaledIcon = new ImageIcon(scaled);
+		JLabel img = new JLabel(scaledIcon);
+		img.setSize(125, 287);
+		img.setLocation(78, 134);
+		
+		frmAccueil.getContentPane().add(img);
 		
 		frmAccueil.setVisible(true);
 		
@@ -156,10 +166,21 @@ public class Accueil implements ActionListener, KeyListener{
 			lblLePseudoNe.setVisible(true);
 		}
 		else {
+			loginaccepte=true;
 			frmAccueil.setVisible(false);	
 		}
 	}
 	
+	public Image scaleImage(Image image, int w, int h) {
+
+	    Image scaled = image.getScaledInstance(w, h, Image.SCALE_SMOOTH);
+
+	    return scaled;
+	}
+	
+	public Boolean getLoginaccepte() {
+		return loginaccepte;
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
