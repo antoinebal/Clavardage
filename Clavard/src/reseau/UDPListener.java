@@ -67,12 +67,4 @@ public class UDPListener implements Runnable {
     }
 
 
-    /*
-    public static void main(String[] args) {
-	UDPListener udpl = new UDPListener(1234);
-	Thread t = new Thread (udpl);
-	t.start();
-	}*/
-    
-    
 }

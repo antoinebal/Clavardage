@@ -188,7 +188,7 @@ public class Accueil implements ActionListener, KeyListener{
 	public void actionPerformed(ActionEvent arg0) {
 		if(rdbtnEnLigne.isSelected()) {
 			JOptionPane jop = new JOptionPane();
-		    String IP = jop.showInputDialog(null, "Veuillez insérer l'adresse IP du serveur" , "Adresse IP ?", JOptionPane.QUESTION_MESSAGE);
+		    String IP = jop.showInputDialog(null, "Veuillez saisir l'adresse IP du serveur" , "Adresse IP ?", JOptionPane.QUESTION_MESSAGE);
 		    ctrl.setIPserver(IP);
 		}
 		action();
@@ -199,7 +199,7 @@ public class Accueil implements ActionListener, KeyListener{
 		if (ke.getKeyCode() == 10) {
 			if(rdbtnEnLigne.isSelected()) {
 				JOptionPane jop = new JOptionPane();
-			    String IP = jop.showInputDialog(null, "Veuillez insérer l'adresse IP du serveur" , "Adresse IP ?", JOptionPane.QUESTION_MESSAGE);
+			    String IP = jop.showInputDialog(null, "Veuillez saisir l'adresse IP du serveur" , "Adresse IP ?", JOptionPane.QUESTION_MESSAGE);
 			    ctrl.setIPserver(IP);
 			}
 			action();

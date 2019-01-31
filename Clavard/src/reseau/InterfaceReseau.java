@@ -343,11 +343,5 @@ public abstract class InterfaceReseau {
     }
 
 
- 
-		
-
- 
-	
-
 
 }

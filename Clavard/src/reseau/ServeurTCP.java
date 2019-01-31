@@ -106,31 +106,4 @@ public class ServeurTCP {
     }
    
 
-   
- 
-	/*
-	  public static void main(String[] args) {
-	  Srv serveur = new Srv(5000);
-	  serveur.startServer();
-
-	  Scanner scan = new Scanner(System.in);
-	  String inputNum=null;
-	  String inputMsg=null;
-	  while(true) {
-	  System.out.println("Attente entrée numéro.");
-	  if(scan.hasNext()) {
-	  inputNum = scan.nextLine();
-	  System.out.println("Entrée prise en compte : "+inputNum);
-	  if (scan.hasNext()) {
-	  System.out.println("Attente entrée message.");
-	  inputMsg = scan.nextLine();
-	  System.out.println("Entrée prise en compte : "+inputMsg);
-	  }
-	  serveur.envoyerMessage(inputMsg, Integer.parseInt(inputNum));
-	  }
-	  }
-	
-	  }*/
-
-
 }

@@ -208,8 +208,6 @@ public class Secretaire {
     }
 
     /* on informe l'IR de ce changement, qui va 
-       > lever une exception si le pseudo existe déjà
-       > lever une exception si l'ancien spseudo n'existe pas
        > changer l'annuaire
        > informer le controller. */
     public void traiteNewPseudoMessage(String newPseudoMsg) {
@@ -226,27 +224,5 @@ public class Secretaire {
 	}
     }
     
-
-
-    
-    public static void main(String[] args) {
-	/*boolean b = Pattern.matches(".+:hello", "maure:hello");
-	  if (b) {System.out.println("MATCH");}else{System.out.println("PAS MATCH");}*/
-	/*s.traiteMessage("maure:tchao");
-	s.traiteMessage("drassius:hello");
-	s.traiteMessage("derol:newpseudo:eran");
-	s.traiteMessage("mazak:welcome:informations");
-	s.traiteMessage("nualia:tcho");*/
-
-	
-	//Secretaire s = new Secretaire(new InterfaceReseau("maure"));
-	//s.traiteMessage(null,0,"maure:hello");
-	//s.traiteMessage(null,0,"mazak:hello:5000");
-	//String welcomeMsg = "maure:mazak0:welcome:mazak;255.255.255.255;5000:nualia;255.255.255.255;5001:derol;255.255.255.255;5000:drassius;255.255.255.255;5000";
-	//s.traiteMessage(null,0,welcomeMsg);
-	/*s.traiteWelcomeMessage(welcomeMsg);
-	System.out.println("Testhello");
-	s.traiteHelloMessage("maure:hello", null);*/
-	}
 
 }

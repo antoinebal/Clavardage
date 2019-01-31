@@ -73,25 +73,5 @@ public class UDPTalk {
     }
     
 
-    /*
-    public static void main(String[] args) {
-	UDPTalk udpt = new UDPTalk(1234);
-	Scanner scan = new Scanner(System.in);
-	String input=null;
-	try {
-	while (true) {
-	    System.out.println("Attente entrée message.");
-	    if (scan.hasNext()) {
-		input = scan.nextLine();
-		System.out.println("Entrée prise en compte : "+input);
-	    }
-	    udpt.sendHello(InetAddress.getLocalHost());
-	}
-	} catch(UnknownHostException e) {
-	     System.out.println("PB dans main.");
-	     e.printStackTrace();
-	}
-	}*/
-    
     
 }
